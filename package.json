@@ -10,7 +10,9 @@
   "description": "PearlThoughts Task",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "serve": "node app.js"
   },
   "author": "Aniket Tiwari",
   "license": "ISC"
