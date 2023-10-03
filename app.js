@@ -16,6 +16,10 @@ app.use('/api/doctors', doctorRoutes);
 app.use('/api/appointments', appointmentRoutes);
 app.use('/api/schedule', ScheduleRoutes)
 
+app.use('/', (req, res) => {
+  res.send("<h1>Server Started Successfully</h1>")
+})
+
 const connecDB = mongoose.connect(process.env.DB_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
