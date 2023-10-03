@@ -3,9 +3,9 @@ const { json } = require('express');
 const dotenv = require('dotenv');
 dotenv.config();
 const { connect, default: mongoose } = require('mongoose');
-const doctorRoutes = require('../Doctors_Task/api/routes/doctors');
-const appointmentRoutes = require('../Doctors_Task/api/routes/appointments');
-const ScheduleRoutes = require('../Doctors_Task/api/routes/schedule')
+const doctorRoutes = require('./api/routes/doctors');
+const appointmentRoutes = require('./api/routes/appointments');
+const ScheduleRoutes = require('./api/routes/schedule')
 
 const app = express();
 const port = process.env.PORT || 5000;
