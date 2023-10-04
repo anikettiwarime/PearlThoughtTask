@@ -6,8 +6,8 @@ const { getDoctors, createDoctor, getDoctorById, updateDoctor, deleteDoctor} = r
 
 router.
     get('/', getDoctors).
-    post('/', createDoctor).
     get('/:id', getDoctorById).
+    post('/', createDoctor).
     patch('/:id', updateDoctor).
     delete('/:id', deleteDoctor);
 

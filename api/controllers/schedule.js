@@ -36,17 +36,17 @@ const AddSchedule = async (req, res) => {
         if (doctor.numOfAppointments > 0)
         {
             const newLeft = doctor.numOfAppointments - 1;
-            const d = new Date(startTime);
-            const de = new Date(endTime)
+            const startDateTime = new Date(startTime);
+            const endDateTime = new Date(endTime)
             console.log();
-            if (d.getDay() == 0)
+            if (startDateTime.getDay() == 0)
             {
                 res.json({msg: "No doctor work on sunday"})
             }
             const doctorSchedule = await Schedule.find({ doctorId: doctor._id });
 
             doctorSchedule.forEach((docI) => {
-                if ((d > docI.startTime && d < docI.endTime) || (de > docI.startTime && de < docI.endTime) || (d < docI.startTime && de > docI.endTime))
+                if ((startDateTime > docI.startTime && startDateTime < docI.endTime) || (endDateTime > docI.startTime && endDateTime < docI.endTime) || (startDateTime < docI.startTime && endDateTime > docI.endTime))
                 {
                     res.json({msg: "No Time for this appointment"})
                 }

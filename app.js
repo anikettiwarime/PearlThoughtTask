@@ -5,12 +5,11 @@ dotenv.config();
 const { connect, default: mongoose } = require('mongoose');
 const doctorRoutes = require('./api/routes/doctors');
 const appointmentRoutes = require('./api/routes/appointments');
-const ScheduleRoutes = require('./api/routes/schedule')
+const ScheduleRoutes = require('./api/routes/schedule');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-// Middleware setup, database connection, and route registration
 app.use(json());
 app.use('/api/doctors', doctorRoutes);
 app.use('/api/appointments', appointmentRoutes);

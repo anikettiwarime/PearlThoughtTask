@@ -11,6 +11,6 @@ router
     .post("/", AddSchedule)
     .get("/:id", getScheduleById)
     .patch("/:id", UpdateSchedule)
-    .delete("/:id", DeleteSchedule)
+    .delete("/:id", DeleteSchedule);
 
 module.exports = router

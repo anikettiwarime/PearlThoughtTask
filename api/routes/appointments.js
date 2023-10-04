@@ -9,7 +9,6 @@ const {
     }
     = require('../controllers/appointments');
 
-// Define appointment-related routes and their handlers
 
 Approuter.
     get('/', getAppointments).
