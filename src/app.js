@@ -12,11 +12,9 @@ import { appointmentRouter } from './routes/appointments.routes.js';
 import { schedulerouter } from './routes/schedules.routes.js';
 
 // Use Routes
-router.use('/doctors', docterRouter);
-router.use('/appointments', appointmentRouter);
-router.use('/schedule', schedulerouter);
-
-app.use('/api', router); // prefix /api
+app.use('/api/doctors', docterRouter);
+app.use('/api/appointments', appointmentRouter);
+app.use('/api/schedule', schedulerouter);
 
 app.get('/', (req, res) => {
     res.send('Server Started Successfully');
@@ -33,3 +31,5 @@ app.listen(port, () => {
     });
     console.log(`Server is running on port ${port}`);
 });
+
+export default app;
