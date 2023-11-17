@@ -5,8 +5,8 @@
   "type": "module",
   "main": "src/app.js",
   "scripts": {
-    "dev": "nodemon --env-file=.env index.js",
-    "start": "node --env-file=.env index.js"
+    "dev": "nodemon --env-file=.env src/index.js",
+    "start": "node --env-file=.env src/index.js"
   },
   "author": "aniket tiwari",
   "license": "ISC",

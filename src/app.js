@@ -12,16 +12,20 @@ import { appointmentRouter } from './routes/appointments.routes.js';
 import { schedulerouter } from './routes/schedules.routes.js';
 
 // Use Routes
-app.use('/api/doctors', docterRouter);
-app.use('/api/appointments', appointmentRouter);
-app.use('/api/schedule', schedulerouter);
+router.use('/doctors', docterRouter);
+router.use('/appointments', appointmentRouter);
+router.use('/schedule', schedulerouter);
+
+
+app.use('/api', router); // prefix all routes with /api
 
 app.get('/', (req, res) => {
     res.send('Server Started Successfully');
 });
 
+
 // Connect to DB
-const connecDB = mongoose.connect(`${process.env.MONGO_URI}pearlthoughts`);
+const connecDB = mongoose.connect(`${process.env.MONGO_URI}/pearlthoughts`);
 
 app.listen(port, () => {
     connecDB.then(() => {
