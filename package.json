@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "PearlThoughts Task",
   "type": "module",
-  "main": "src/app.js",
+  "main": "src/index.js",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "nodemon --env-file=.env src/index.js",
     "start": "node --env-file=.env src/index.js"
