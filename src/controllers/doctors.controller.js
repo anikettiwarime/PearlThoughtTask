@@ -1,4 +1,4 @@
-const Doctor = require('../models/doctors');
+import { Doctor } from "../models/doctor.model.js";
 
 const createDoctor = async (req, res) => {
   try {
@@ -30,7 +30,11 @@ const getDoctorById = async (req, res) => {
 
 const updateDoctor = async (req, res) => {
   try {
-    const updatedDoctor = await Doctor.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedDoctor = await Doctor.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
     res.status(200).json(updatedDoctor);
   } catch (error) {
     res.status(409).json({ message: error.message });
@@ -46,7 +50,7 @@ const deleteDoctor = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   createDoctor,
   getDoctors,
   getDoctorById,

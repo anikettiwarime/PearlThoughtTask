@@ -1,12 +1,14 @@
-const Appointment = require('../models/appointments');
-const Doctor = require('../models/doctors');
+import { Appointment } from "../models/appointment.model.js";
+import { Doctor } from "../models/doctor.model.js";
 
 const createAppointment = async (req, res) => {
   const appointment = req.body;
   const { doctorId } = appointment;
   const newAppointment = new Appointment(appointment);
+
   try {
     const isDoctor = await Doctor.findById(doctorId);
+
     if (!isDoctor) {
       res.status(404).json({ message: "No Doctor Found" });
       return;
@@ -77,10 +79,10 @@ const deleteAppointment = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   createAppointment,
   getAppointments,
   getAppointmentById,
   updateAppointment,
-  deleteAppointment,
+  deleteAppointment
 };
