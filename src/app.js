@@ -2,7 +2,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 const app = express();
 app.use(express.json());
-const port = process.env.PORT || 5000;
 
 const router = express.Router();
 
@@ -25,15 +24,8 @@ app.get('/', (req, res) => {
 
 
 // Connect to DB
-const connecDB = mongoose.connect(`${process.env.MONGO_URI}/pearlthoughts`);
+const connectDB = mongoose.connect(`${process.env.MONGO_URI}/pearlthoughts`);
 
-app.listen(port, () => {
-    connecDB.then(() => {
-        console.log('MongoDB Connected');
-    }).catch((err) => {
-        console.log(err);
-    });
-    console.log(`Server is running on port ${port}`);
-});
+export { connectDB , app };
 
-export default app;
+
